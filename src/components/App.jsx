@@ -14,6 +14,7 @@ export default function App() {
   const [page, setPage] = useState(1);
   const [status, setStatus] = useState('idle');
   const [isLoading, setIsLoading] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
   const [largeImage, setLargeImage] = useState(null);
   const [isButtonActive, setIsButtonActive] = useState(false);
