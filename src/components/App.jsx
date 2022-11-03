@@ -61,7 +61,7 @@ export default function App() {
         })
         .catch(error => {
           setStatus('rejected');
-          setError(error);
+          setError(error.message);
         });
     }
   }, [imgName, page]);
