@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Overlay, ModalBox } from './Modal.styled';
 import { useEffect } from 'react';
 
-export default function Modal({ image, closeModal }) {
+export default function Modal({ imageObj, closeModal }) {
   useEffect(() => {
     let escapeDown = () => {};
     window.addEventListener(
@@ -31,13 +31,16 @@ export default function Modal({ image, closeModal }) {
   return (
     <Overlay onClick={modalClose}>
       <ModalBox>
-        <img src={image} alt="" id="modal-img" />
+        <img src={imageObj.largeImageURL} alt={imageObj.tags} id="modal-img" />
       </ModalBox>
     </Overlay>
   );
 }
 
 Modal.propTypes = {
-  image: PropTypes.string.isRequired,
+  imageObj: PropTypes.shape({
+    largeImageURL: PropTypes.string.isRequired,
+    tags: PropTypes.string.isRequired,
+  }).isRequired,
   closeModal: PropTypes.func.isRequired,
 };

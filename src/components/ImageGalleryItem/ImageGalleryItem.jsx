@@ -4,7 +4,7 @@ import { ImageItem, ItemImage } from './ImageGalleryItem.styled';
 export default function ImageGalleryItem({ image, openModal }) {
   const { webformatURL, largeImageURL, tags } = image;
   const handleImgClick = () => {
-    openModal(largeImageURL);
+    openModal({ largeImageURL, tags });
   };
 
   return (

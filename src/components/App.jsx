@@ -16,7 +16,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
-  const [largeImage, setLargeImage] = useState(null);
+  const [largeImageObj, setLargeImageObj] = useState(null);
   const [isButtonActive, setIsButtonActive] = useState(false);
 
   const handleFormSubmit = imgName => {
@@ -27,7 +27,7 @@ export default function App() {
   };
 
   const clearLargeImageUrl = () => {
-    setLargeImage(null);
+    setLargeImageObj(null);
   };
 
   const handlePageIncrement = () => {
@@ -74,7 +74,7 @@ export default function App() {
       )}
 
       {status === 'resolved' && (
-        <ImageGallery images={images} openModal={setLargeImage} />
+        <ImageGallery images={images} openModal={setLargeImageObj} />
       )}
       {isLoading === true && (
         <div style={{ textAlign: 'center' }}>
@@ -91,8 +91,8 @@ export default function App() {
       )}
       {isButtonActive === true && <Button btnClick={handlePageIncrement} />}
       <ToastContainer autoClose={3000} theme="colored" />
-      {largeImage && (
-        <Modal image={largeImage} closeModal={clearLargeImageUrl} />
+      {largeImageObj && (
+        <Modal imageObj={largeImageObj} closeModal={clearLargeImageUrl} />
       )}
     </div>
   );
